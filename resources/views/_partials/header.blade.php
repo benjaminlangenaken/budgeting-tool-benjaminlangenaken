@@ -1,8 +1,7 @@
 <header class="px-6 py-8">
-    <header class="md:flex md:justify-between md:items-center">
-        <div>
-            <p>Laravel And Beyond...</p>
-        </div>
+    <div class="md:flex md:justify-between md:items-center">
+
+        <p class="text-xl font-bold">Budgeting tool</p>
 
         <div class="mt-8 md:mt-0">
             <a href="/" class="text-xs font-bold uppercase">Home</a>
@@ -11,4 +10,6 @@
                 Subscribe
             </a>
         </div>
-    </header>
+
+    </div>
+</header>

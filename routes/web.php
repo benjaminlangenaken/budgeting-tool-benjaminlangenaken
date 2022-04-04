@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $transactions = Transaction::latest()->with('user', 'type', 'category', 'account')->get();
+
+    return view('transactions', [
+        'transactions' => $transactions
+    ]);;
 });
