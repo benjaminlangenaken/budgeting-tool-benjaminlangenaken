@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('type_id');
             $table->foreignId('category_id');
             $table->foreignId('account_id');
             $table->string('description');
             $table->decimal('amount', 7, 2);
-            $table->char('currency', 3);
+            $table->char('currency', 3)->default("EUR");
+            $table->boolean('is_expense')->default(true);
             $table->date('date');
             $table->timestamps();
         });

@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('name');
+            $table->string('IBAN');
+            $table->decimal('balance', 10, 2);
             $table->char('currency', 3);
-            $table->decimal('balance', 7, 2);
             $table->timestamps();
         });
     }
