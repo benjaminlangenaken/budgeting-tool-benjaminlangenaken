@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TransactionController;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $transactions = Transaction::latest()->with('user', 'type', 'category', 'account')->get();
+Route::get('/', [TransactionController::class, 'index']);
+
+Route::get('/Transactions', function () {
+    $transactions = Transaction::orderBy('date', 'desc')->with('user', 'category', 'account')->get();
 
     return view('transactions', [
         'transactions' => $transactions
-    ]);;
+    ]);
 });

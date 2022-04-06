@@ -5,12 +5,14 @@
     <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
 
         @if ($transactions->count() > 0)
-            <div class="flex-row">
+            <div class="flex flex-col">
                 @foreach($transactions as $transaction)
-                    <span class="font-bold"> {{ $transaction->date }} - </span>
-                    <span class="font-bold"> {{ $transaction->description }}: </span>
-                    <span> {{ $transaction->amount }} </span>
-                    <span> {{ $transaction->currency }} </span>
+                    <div>
+                        <span class="font-bold"> {{ $transaction->date }} - </span>
+                        <span class="font-bold"> {{ $transaction->description }}: </span>
+                        <span> {{ $transaction->amount *-1 }} </span>
+                        <span> {{ $transaction->currency }} </span>
+                    </div>
                 @endforeach
             </div>
         @else
