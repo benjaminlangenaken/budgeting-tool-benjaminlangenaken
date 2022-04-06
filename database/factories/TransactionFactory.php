@@ -21,10 +21,10 @@ class TransactionFactory extends Factory
     {
         return [
             'description' => $this->faker->unique()->sentence,
-            'amount' => $this->faker->unique()->randomFloat(2, 1, 10000),
+            'amount' => $this->faker->unique()->randomFloat(2, 1, 2000),
             'currency' => $this->faker->currencyCode,
             'is_expense' => $this->faker->boolean,
-            'date' => $this->faker->date
+            'date' => $this->faker->dateTimeThisYear
         ];
     }
 }

@@ -12,6 +12,8 @@ class Transaction extends Model
     // Create an array of all database columns which are NOT allowed to be mass assigned
     protected $guarded = ['id'];
 
+    protected $dates = ['name_field'];
+
     // Add eloquent relationships
     public function user()
     {

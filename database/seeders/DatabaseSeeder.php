@@ -25,20 +25,23 @@ class DatabaseSeeder extends Seeder
         $categories = 6;
         Category::factory($categories)->create();
 
-        $accounts = [1, 2];
-        foreach ($accounts as $iteration) {
+        $accounts = 2;
+        $accountsLoop = $accounts;
+        while (--$accountsLoop >= 0)
+        {
             Account::factory()->create([
-                'user_id' => random_int(1, $users),
+                'user_id' => ($accountsLoop+1),
                 'currency' => 'EUR'
             ]);
         }
 
-        $iterations = [1, 2, 3, 4];
-        foreach ($iterations as $iteration) {
-            Transaction::factory(5)->create([
+        $transactions = 20;
+        while (--$transactions >= 0)
+        {
+            Transaction::factory()->create([
                 'user_id' => random_int(1, $users),
                 'category_id' => random_int(1, $categories),
-                'account_id' => random_int(1, count($accounts)),
+                'account_id' => random_int(1, $accounts),
                 'currency' => 'EUR'
             ]);
         }
