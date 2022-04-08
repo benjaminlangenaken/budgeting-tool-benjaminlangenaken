@@ -16,7 +16,7 @@
     <script>
         const overviewChart = new Chartisan({
             el: '#overview-chart-container',
-            url: "@chart('overview_budget_chart')",
+            url: "@chart('overview_budget_chart')"
         });
     </script>
 
