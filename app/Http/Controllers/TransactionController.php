@@ -10,10 +10,12 @@ class TransactionController extends Controller
 {
     public function index(Request $request)
     {
-        $transactions = Transaction::orderBy('date', 'desc')->with('user', 'category', 'account')->get();
+        $transactions = Transaction::orderBy('date', 'desc')->with('user', 'account')->get();
+        $categories = Transaction::groupBy('category', 'is_expense', 'currency')->selectRaw('sum(amount) as sum, category as name, is_expense, currency')->get();
 
         return view('transactions.index', [
-            'transactions' => $transactions
+            'transactions' => $transactions,
+            'categories' => $categories
         ]);
     }
 

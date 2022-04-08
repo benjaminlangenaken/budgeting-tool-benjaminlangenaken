@@ -22,9 +22,6 @@ class DatabaseSeeder extends Seeder
         $users = 2;
         User::factory($users)->create();
 
-        $categories = 6;
-        Category::factory($categories)->create();
-
         $accounts = 2;
         $accountsLoop = $accounts;
         while (--$accountsLoop >= 0)
@@ -40,7 +37,6 @@ class DatabaseSeeder extends Seeder
         {
             Transaction::factory()->create([
                 'user_id' => random_int(1, $users),
-                'category_id' => random_int(1, $categories),
                 'account_id' => random_int(1, $accounts),
                 'currency' => 'EUR'
             ]);
