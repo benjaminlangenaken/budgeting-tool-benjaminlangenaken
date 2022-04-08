@@ -10,12 +10,10 @@ class TransactionController extends Controller
 {
     public function index(Request $request)
     {
-        $transactions = Transaction::all();
+        $transactions = Transaction::orderBy('date', 'desc')->with('user', 'category', 'account')->get();
 
-        $chart = new OverviewBudgetChart();
-
-        return view('index', [
-            'chart' => $chart
+        return view('transactions.index', [
+            'transactions' => $transactions
         ]);
     }
 }

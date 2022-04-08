@@ -14,15 +14,13 @@ class Transaction extends Model
 
     protected $dates = ['name_field'];
 
+    // Avoid n+1 problem in foreach loop by also fetching category/author for each Post
+    protected $with = ['user', 'category', 'account'];
+
     // Add eloquent relationships
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function type()
-    {
-        return $this->belongsTo(Type::class);
     }
 
     public function category()
