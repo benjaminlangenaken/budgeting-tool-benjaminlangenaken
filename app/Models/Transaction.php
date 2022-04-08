@@ -12,7 +12,16 @@ class Transaction extends Model
     // Create an array of all database columns which are NOT allowed to be mass assigned
     protected $guarded = ['id'];
 
-    protected $dates = ['name_field'];
+//    protected $dates = ['name_field'];
+
+    protected $fillable = [
+        'date',
+        'description',
+        'category',
+        'amount',
+        'currency',
+//        'is_expense'
+    ];
 
     // Avoid n+1 problem in foreach loop by also fetching category/author for each Post
     protected $with = ['user', 'account'];
