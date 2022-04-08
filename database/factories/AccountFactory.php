@@ -19,7 +19,7 @@ class AccountFactory extends Factory
     {
         return [
             'IBAN'      => $this->faker->unique()->iban('BE'),
-            'balance'   => $this->faker->randomFloat(2,10000, 100000),
+            'balance'   => $this->faker->randomFloat(2,2000, 100000),
             'currency'  => $this->faker->currencyCode,
         ];
     }
