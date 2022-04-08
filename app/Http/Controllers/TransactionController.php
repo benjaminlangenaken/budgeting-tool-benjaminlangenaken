@@ -16,4 +16,22 @@ class TransactionController extends Controller
             'transactions' => $transactions
         ]);
     }
+
+//    public function show(Transaction $transaction)
+//    {
+//        return view('transactions.show', [
+//            'transaction' => $transaction
+//        ]);
+//    }
+
+//    public function chart(Request $request)
+//    {
+////        return $categories = Category::latest()->get('name')->values();
+//
+//        $chart = new OverviewBudgetChart();
+//
+//        return view('index', [
+//            'chart' => $chart
+//        ]);
+//    }
 }
