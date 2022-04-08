@@ -19,12 +19,45 @@ class TransactionController extends Controller
         ]);
     }
 
-//    public function show(Transaction $transaction)
-//    {
-//        return view('transactions.show', [
-//            'transaction' => $transaction
-//        ]);
-//    }
+    public function show(Request $request)
+    {
+        $transactions = Transaction::orderBy('date', 'desc')->get();
+
+        return view('transactions.show', [
+            'transactions' => $transactions
+        ]);
+    }
+
+    public function edit(Transaction $transaction)
+    {
+        return view('transactions.edit', [
+            'transaction' => $transaction
+        ]);
+    }
+
+    public function update(Transaction $transaction)
+    {
+//        dd(request()->all());
+        request()->validate([
+            'date' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'amount' => 'required',
+            'currency' => 'required',
+//            'is_expense' => 'required'
+        ]);
+
+        $transaction->update([
+            'date' => request('date'),
+            'description' => request('description'),
+            'category' => request('category'),
+            'amount' => request('amount'),
+            'currency' => request('currency'),
+            'is_expense' => request('is_expense'),
+        ]);
+
+        return redirect('/transactions');
+    }
 
 //    public function chart(Request $request)
 //    {
