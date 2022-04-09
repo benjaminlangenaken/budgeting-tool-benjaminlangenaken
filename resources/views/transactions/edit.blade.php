@@ -82,7 +82,7 @@
 
             <button
                 class="bg-blue-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-sm rounded
-                    hover:shadow"
+                    hover:shadow mr-3"
             >
                 Update
             </button>
