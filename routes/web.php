@@ -12,3 +12,5 @@ Route::post('/transactions', [TransactionController::class, 'store']);
 
 Route::get('/transactions/{transaction}/edit', [TransactionController::class, 'edit']);
 Route::put('/transactions/{transaction}', [TransactionController::class, 'update']);
+
+Route::delete('/transactions/{transaction}', [TransactionController::class, 'delete']);

@@ -89,6 +89,13 @@ class TransactionController extends Controller
         return redirect('/transactions');
     }
 
+    public function delete(Transaction $transaction)
+    {
+        $transaction->delete();
+
+        return redirect('/transactions');
+    }
+
 //    public function chart(Request $request)
 //    {
 ////        return $categories = Category::latest()->get('name')->values();
