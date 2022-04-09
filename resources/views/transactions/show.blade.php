@@ -25,6 +25,13 @@
             </a>
         @endforeach
 
+        <a href="/transactions/create">
+            <button
+                class="bg-blue-500 tracking-wide text-white mt-2 px-6 py-2 inline-block mb-6 shadow-sm rounded
+                    hover:shadow"
+            >+ Add transaction
+            </button>
+        </a>
     </main>
 
     @include('_partials.footer')
