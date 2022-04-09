@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
 <body style="font-family: Open Sans, sans-serif">
-<section class="px-6 py-8">
+<section class="px-6 py-8 flex flex-col h-screen justify-between">
 
     {{ $slot }}
 
