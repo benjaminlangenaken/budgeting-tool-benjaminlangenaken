@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $users = 2;
+        $users = 1;
         User::factory($users)->create();
 
-        $accounts = 2;
+        $accounts = 1;
         $accountsLoop = $accounts;
         while (--$accountsLoop >= 0)
         {
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $transactions = 20;
+        $transactions = 10;
         while (--$transactions >= 0)
         {
             Transaction::factory()->create([
