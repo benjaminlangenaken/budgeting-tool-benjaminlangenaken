@@ -12,10 +12,14 @@ class TransactionController extends Controller
     {
         $transactions = Transaction::orderBy('date', 'desc')->with('user', 'account')->get();
         $categories = Transaction::groupBy('category', 'is_expense', 'currency')->selectRaw('sum(amount) as sum, category as name, is_expense, currency')->get();
+        $income = Transaction::latest()->where('is_expense', '=', 0)->selectRaw('sum(amount) as sum')->get();
+        $expenses = Transaction::latest()->where('is_expense', '=', 1)->selectRaw('sum(amount) as sum')->get();
 
         return view('transactions.index', [
             'transactions' => $transactions,
-            'categories' => $categories
+            'categories' => $categories,
+            'income' => $income,
+            'expenses' => $expenses,
         ]);
     }
 
@@ -28,6 +32,34 @@ class TransactionController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('transactions.create');
+    }
+
+    public function store()
+    {
+        request()->validate([
+            'date' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'amount' => 'required',
+            'currency' => 'required',
+            'is_expense' => 'required',
+        ]);
+
+        Transaction::create([
+            'date' => request('date'),
+            'description' => request('description'),
+            'category' => request('category'),
+            'amount' => request('amount'),
+            'currency' => request('currency'),
+            'is_expense' => request('is_expense'),
+        ]);
+
+        return redirect('/transactions');
+    }
+
     public function edit(Transaction $transaction)
     {
         return view('transactions.edit', [
@@ -37,14 +69,12 @@ class TransactionController extends Controller
 
     public function update(Transaction $transaction)
     {
-//        dd(request()->all());
         request()->validate([
             'date' => 'required',
             'description' => 'required',
             'category' => 'required',
             'amount' => 'required',
-            'currency' => 'required',
-//            'is_expense' => 'required'
+            'currency' => 'required'
         ]);
 
         $transaction->update([
