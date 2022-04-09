@@ -9,5 +9,7 @@ class Account extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'id',
+    ];
 }

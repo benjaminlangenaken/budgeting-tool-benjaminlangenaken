@@ -9,12 +9,10 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    // Create an array of all database columns which are NOT allowed to be mass assigned
-    protected $guarded = ['id'];
-
-//    protected $dates = ['name_field'];
-
     protected $fillable = [
+        'id',
+        'user_id',
+        'account_id',
         'date',
         'description',
         'category',
