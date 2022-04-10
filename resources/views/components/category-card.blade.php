@@ -3,7 +3,7 @@
 @if ($category->is_expense)
     <article
         {{--    {{ $attributes->merge(['class' =>'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }} >--}}
-        class='transition-colors duration-300 hover:bg-red-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl'>
+        class='transition-colors duration-300 bg-red-100 hover:bg-red-200 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl m-3'>
         <div class="py-6 px-5">
             <div class="mt-2 flex flex-col justify-between">
                 <header>
@@ -42,7 +42,7 @@
 @else
     <article
         {{--    {{ $attributes->merge(['class' =>'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }} >--}}
-        class='transition-colors duration-300 hover:bg-green-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl'>
+        class='transition-colors duration-300 bg-green-100 hover:bg-green-200 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl m-3'>
         <div class="py-6 px-5">
             <div class="mt-2 flex flex-col justify-between">
                 <header>
@@ -79,10 +79,3 @@
         </div>
     </article>
 @endif
-
-{{--<div>--}}
-{{--    <span class="font-bold"> {{ $transaction->date }} - </span>--}}
-{{--    <span class="font-bold"> {{ $transaction->description }}: </span>--}}
-{{--    <span> {{ $transaction->amount *-1 }} </span>--}}
-{{--    <span> {{ $transaction->currency }} </span>--}}
-{{--</div>--}}

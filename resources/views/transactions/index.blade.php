@@ -6,7 +6,7 @@
 
         @if ($transactions->count() > 0)
 
-            <h1 class="text-3xl font-bold">Remaining budget=
+            <h1 class="text-3xl font-bold text-center">Remaining budget =
                 {{ number_format($income[0]->sum - $expenses[0]->sum, 2, ',', '.') . ' ' . 'EUR' }}
             </h1>
 
